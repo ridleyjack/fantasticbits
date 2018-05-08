@@ -402,7 +402,18 @@ public:
 		}
 
 	} // end GameTurn(..)
+	
+	~GameTurn() {
+		delete center;
+		delete myGoal;
+		delete badGoal;
 
+		for (int i = 0; i < entities; i++) {
+			delete entity[i];
+		}
+
+		delete[] entity;
+	}
 };
 
 int main()
